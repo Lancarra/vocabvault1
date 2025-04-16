@@ -1,0 +1,210 @@
+/* Основной стиль */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #eefaf6;
+  color: #004d40;
+}
+
+/* Центровка карточек */
+.dashboard-container,
+.definitions-page,
+.auth-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease-in-out;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #eefaf6;
+  padding: 40px 20px;
+}
+
+
+/* Оставляем окно формы красивым */
+.auth-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.auth-box h2 {
+  margin-bottom: 0.5rem;
+  color: #004d40;
+}
+
+.auth-subtext {
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.auth-subtext a {
+  color: #009688;
+  font-weight: 500;
+}
+
+/* Иконки + инпут */
+.input-group {
+  display: flex;
+  align-items: center;
+  background: #f3fdfa;
+  border: 1px solid #cceee7;
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.input-group input {
+  border: none;
+  outline: none;
+  background: transparent;
+  margin-left: 10px;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.icon {
+  font-size: 1.1rem;
+  color: #00796b;
+}
+
+.full-width-btn {
+  width: 100%;
+  background-color: #00c896;
+  font-size: 1rem;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.full-width-btn:hover {
+  background-color: #00b386;
+}
+
+/* Стиль кнопок */
+button {
+  background-color: #26a69a;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #2bbbad;
+}
+
+/* Инпуты */
+input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #b2dfdb;
+  outline: none;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 280px;
+}
+
+/* Хедер */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Форма добавления */
+.create-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+  align-items: center;
+}
+
+/* Список словарей */
+.dict-list {
+  list-style: none;
+  padding: 0;
+}
+
+.dict-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0f2f1;
+  flex-wrap: wrap;
+}
+
+.dict-list li span {
+  font-size: 1rem;
+  margin-right: auto;
+}
+
+.dict-list button {
+  margin-left: 10px;
+}
+
+/* Страница определений */
+.definitions-page form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.definitions-page ul {
+  padding-left: 0;
+}
+
+.definitions-page li {
+  margin: 10px 0;
+}
+
+/* Ссылки */
+a {
+  color: #2e8b57;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 600px) {
+  .create-form,
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dict-list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dict-list button {
+    margin: 5px 5px 0 0;
+  }
+}
