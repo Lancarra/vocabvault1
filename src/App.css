@@ -6,10 +6,9 @@ body {
   color: #004d40;
 }
 
-/* Центровка карточек */
+/* Центровка карточек — только для dashboard и definitions */
 .dashboard-container,
-.definitions-page,
-.auth-container {
+.definitions-page {
   max-width: 700px;
   margin: 40px auto;
   padding: 30px;
@@ -19,13 +18,15 @@ body {
   transition: 0.3s ease-in-out;
 }
 
+/* Центровка логина/регистрации */
 .auth-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh; /* заменяем min-height */
   background: #eefaf6;
   padding: 40px 20px;
+  box-sizing: border-box;
 }
 
 
@@ -120,7 +121,6 @@ input {
   outline: none;
   font-size: 1rem;
   width: 100%;
-  max-width: 280px;
 }
 
 /* Хедер */
