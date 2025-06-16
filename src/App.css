@@ -1,21 +1,47 @@
-/* Основной стиль */
+/* === ПЕРЕМЕННЫЕ === */
+:root {
+  --bg-color: #eefaf6;
+  --text-color: #004d40;
+  --card-bg: #ffffff;
+  --primary: #00c896;
+  --primary-hover: #00b386;
+  --input-bg: #f3fdfa;
+  --input-border: #cceee7;
+  --link-color: #2e8b57;
+  --icon-color: #00796b;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #1e1e1e;
+  --primary: #1abc9c;
+  --primary-hover: #16a085;
+  --input-bg: #2a2a2a;
+  --input-border: #444;
+  --link-color: #76ffea;
+  --icon-color: #80cbc4;
+}
+
+/* === ОСНОВНОЙ СТИЛЬ === */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #eefaf6;
-  color: #004d40;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Центровка карточек — только для dashboard и definitions */
+/* Центровка карточек — dashboard и definitions */
 .dashboard-container,
 .definitions-page {
   max-width: 700px;
   margin: 40px auto;
   padding: 30px;
-  background: white;
+  background: var(--card-bg);
   border-radius: 18px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-  transition: 0.3s ease-in-out;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* Центровка логина/регистрации */
@@ -23,46 +49,46 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* заменяем min-height */
-  background: #eefaf6;
+  height: 100vh;
+  background: var(--bg-color);
   padding: 40px 20px;
   box-sizing: border-box;
 }
 
-
-/* Оставляем окно формы красивым */
+/* Форма авторизации */
 .auth-box {
-  background: white;
+  background: var(--card-bg);
   padding: 2rem;
   border-radius: 16px;
   max-width: 400px;
   width: 100%;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   text-align: center;
+  color: var(--text-color);
 }
 
 .auth-box h2 {
   margin-bottom: 0.5rem;
-  color: #004d40;
+  color: var(--text-color);
 }
 
 .auth-subtext {
   font-size: 0.95rem;
   margin-bottom: 1.5rem;
-  color: #555;
+  color: #888;
 }
 
 .auth-subtext a {
-  color: #009688;
+  color: var(--primary);
   font-weight: 500;
 }
 
-/* Иконки + инпут */
+/* Инпут-группа */
 .input-group {
   display: flex;
   align-items: center;
-  background: #f3fdfa;
-  border: 1px solid #cceee7;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
   padding: 10px 14px;
   border-radius: 10px;
   margin-bottom: 1rem;
@@ -75,31 +101,34 @@ body {
   margin-left: 10px;
   width: 100%;
   font-size: 1rem;
+  color: var(--text-color);
 }
 
 .icon {
   font-size: 1.1rem;
-  color: #00796b;
+  color: var(--icon-color);
 }
 
+/* Кнопка полной ширины */
 .full-width-btn {
   width: 100%;
-  background-color: #00c896;
+  background-color: var(--primary);
   font-size: 1rem;
   padding: 12px;
   border-radius: 10px;
   border: none;
   color: white;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .full-width-btn:hover {
-  background-color: #00b386;
+  background-color: var(--primary-hover);
 }
 
-/* Стиль кнопок */
+/* Кнопки */
 button {
-  background-color: #26a69a;
+  background-color: var(--primary);
   color: #fff;
   border: none;
   padding: 10px 18px;
@@ -110,83 +139,26 @@ button {
 }
 
 button:hover {
-  background-color: #2bbbad;
+  background-color: var(--primary-hover);
 }
 
 /* Инпуты */
 input {
   padding: 10px;
   border-radius: 8px;
-  border: 1px solid #b2dfdb;
+  border: 1px solid var(--input-border);
   outline: none;
   font-size: 1rem;
   width: 100%;
-}
-
-/* Хедер */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-/* Форма добавления */
-.create-form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 20px 0;
-  align-items: center;
-}
-
-/* Список словарей */
-.dict-list {
-  list-style: none;
-  padding: 0;
-}
-
-.dict-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 12px 0;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #e0f2f1;
-  flex-wrap: wrap;
-}
-
-.dict-list li span {
-  font-size: 1rem;
-  margin-right: auto;
-}
-
-.dict-list button {
-  margin-left: 10px;
-}
-
-/* Страница определений */
-.definitions-page form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 20px 0;
-}
-
-.definitions-page ul {
-  padding-left: 0;
-}
-
-.definitions-page li {
-  margin: 10px 0;
+  background: var(--card-bg);
+  color: var(--text-color);
 }
 
 /* Ссылки */
 a {
-  color: #2e8b57;
+  color: var(--link-color);
   text-decoration: none;
 }
-
 a:hover {
   text-decoration: underline;
 }

@@ -1,17 +1,29 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
+import MainPage from "./pages/main/MainPage.jsx";
+import LoginPage from "./pages/authme/login/LoginPage.jsx";
+import DashboardPage from "./pages/dashboard/DashboardPage.jsx";
 import Register from "./pages/Register";
-import Definitions from "./pages/Definitions";
+import Profile from "./pages/profile/Profile.jsx";
+import ChangePassword from "./pages/ChangePassword.jsx";
+import ModulePage from "./pages/module/ModulePage.jsx";
+import FolderPage from "./pages/folder/FolderPage.jsx";
+import DictionaryPage from "./pages/dictionary/DictionaryPage.jsx";
+import WordPage from "./pages/word/WordPage.jsx";
 
 function App() {
     return (
         <Routes>
-            <Route path="/" element={<Login />} />
+            <Route path="/" element={<MainPage />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/definitions/:dictId" element={<Definitions />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/dashboard/module" element={<ModulePage />} />
+            <Route path="/dashboard/module/folder" element={<FolderPage/>} />
+            <Route path="/dashboard/module/folder/dictionary" element={<DictionaryPage />} />
+            <Route path="/dashboard/module/folder/dictionary/word" element={<WordPage />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/change-password" element={<ChangePassword />} />
         </Routes>
     );
 }

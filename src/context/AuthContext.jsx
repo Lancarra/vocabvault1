@@ -1,68 +1,33 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
-import axios from "axios";
-import API_URL from "../api";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import { createContext, useContext, useState } from "react";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const navigate = useNavigate();
+    const [token, setToken] = useState(localStorage.getItem("jwtToken"));
+    const [userId, setUserId] = useState(localStorage.getItem("userId"));
 
-    const login = async (credentials) => {
-        try {
-            const res = await axios.post(`${API_URL}/auth/login`, credentials, {
-                withCredentials: true,
-            });
-            setUser(res.data);
-            return { success: true };
-        } catch (err) {
-            return {
-                success: false,
-                message: err.response?.data?.message || "Login failed",
-            };
-        }
+    const login = (newToken, newUserId) => {
+        localStorage.setItem("jwtToken", newToken);
+        localStorage.setItem("userId", newUserId);
+        setToken(newToken);
+        setUserId(newUserId);
     };
 
-    const register = async (credentials) => {
-        try {
-            const res = await axios.post(`${API_URL}/register`, credentials, {
-                withCredentials: true,
-            });
-            setUser(res.data);
-            return { success: true };
-        } catch (err) {
-            console.error("Detailed error:", err.response?.data);
-            return {
-                success: false,
-                message:
-                    err.response?.data?.errors?.generalErrors?.join("; ") ||
-                    err.response?.data?.message ||
-                    "Registration failed",
-            };
-        }
+    const logout = () => {
+        localStorage.removeItem("jwtToken");
+        localStorage.removeItem("userId");
+        setToken(null);
+        setUserId(null);
     };
-
-    const logout = async () => {
-        try {
-            await axios.post(`${API_URL}/auth/logout`, {}, {
-                withCredentials: true,
-            });
-        } catch (err) {
-            console.warn("Logout request failed. Possibly already logged out.");
-        } finally {
-            setUser(null);
-            navigate("/"); // если ты ещё не добавила — перенаправление после logout
-        }
-    };
-
 
     return (
-        <AuthContext.Provider value={{ user, login, register, logout, loading }}>
+        <AuthContext.Provider value={{ token, userId, login, logout }}>
             {children}
         </AuthContext.Provider>
     );
 };
 
+
 export const useAuth = () => useContext(AuthContext);
+

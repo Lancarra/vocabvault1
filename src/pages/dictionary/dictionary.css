@@ -1,0 +1,41 @@
+.dictionary-main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.dictionary-header {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+
+.dictionary-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.table-header,
+.table-row {
+    display: grid;
+    grid-template-columns: 60px 1fr 2fr;
+    align-items: center;
+    padding: 16px 24px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 16px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.table-header {
+    font-weight: 600;
+    background-color: #e7f7f3;
+}
+
+.table-cell {
+    font-size: 1.1rem;
+}

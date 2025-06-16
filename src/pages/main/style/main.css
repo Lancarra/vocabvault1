@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap');
+
+/* === ПЕРЕМЕННЫЕ === */
+:root {
+    --bg-color: #eefaf6;
+    --text-color: #004d40;
+    --card-bg: #ffffff;
+    --primary: #00c896;
+    --primary-hover: #00b386;
+    --input-bg: #f3fdfa;
+    --input-border: #cceee7;
+    --link-color: #2e8b57;
+    --icon-color: #00796b;
+}
+
+/* === БАЗОВЫЕ СТИЛИ === */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    margin-left: 16px;
+    font-weight: 500;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* === ОБЩАЯ СТРУКТУРА === */
+.app_layout {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1280px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* === HEADER === */
+header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--card-bg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.header_cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h2 {
+    font-size: 1.1rem;
+    margin: 0;
+    line-height: 1;
+}
+
+/* === SEARCH === */
+.search_bar {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    padding: 2px 8px;
+    height: 32px;
+}
+
+.search_bar img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.6;
+}
+
+.search_bar input {
+    width: 100%;
+    margin-left: 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+/* === AUTH LINKS === */
+.auth_block a {
+    font-size: 0.95rem;
+}
+
+/* === MAIN === */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+.main_block-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.main_block-title h1 {
+    font-size: 3.6rem;         /* больше и жирнее */
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1.2rem;
+    color: var(--text-color);
+}
+
+.subtext {
+    font-size: 1.3rem;         /* увеличим */
+    font-weight: 400;
+    color: #444;               /* чуть темнее */
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
+}
+
+.login-btn {
+    background: var(--primary);
+    border: none;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none;
+}
+
+.login-btn:hover {
+    background: var(--primary-hover);
+}
+.register-btn {
+    background: var(--primary);
+    border: none;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-bottom: 40px;
+}
+
+.register-btn:hover {
+    background: var(--primary-hover);
+}
+
+/* === CARDS === */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.auth_card {
+    background: var(--card-bg);
+    width: 300px;              /* было 250px */
+    padding: 70px 50px;        /* было 60px 40px */
+    font-size: 1.3rem;
+    font-weight: 500;
+    border-radius: 20px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.auth_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+.app_layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* === АДАПТИВНОСТЬ === */
+@media (max-width: 768px) {
+    .header_cont {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search_bar {
+        width: 100%;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+}
