@@ -7,28 +7,30 @@ function MainPage() {
     const navigate = useNavigate();
     return (
         <div className="app_layout">
-            <header>
-                <div className="container header_cont">
-                    <div className="logo">
-                        <h2>LearnIT</h2> {/* Был img — теперь текст */}
-                    </div>
+            <header className="header">
+                <div className="header-left">
+                    <h2 className="logo">LearnIT</h2>
+                </div>
+
+                <div className="header-center">
                     <div className="search_bar">
                         <img src={SearchImg} alt="search" />
                         <input type="text" placeholder="Search..." />
                     </div>
-                    <div className="auth_block">
-                        <a href="/login" className="login-btn">Log in</a>
-                        {/*<a href="/signup">Sign up</a>*/}
-                    </div>
+                </div>
+
+                <div className="header-right">
+                    <a href="/login" className="login-btn">Log in</a>
                 </div>
             </header>
 
-            <main>
+
+            <main className="main-page-content">
                 <div className="container">
-                    <div className="main_block">
-                        <h1>How do you want to study?</h1>
+                    <div className="main_block-title">
+                        <h1>What describes you best?</h1>
                         <p className="subtext">
-                            Master any subject with interactive flashcards, practice tests, and study activities on LearnIT.
+                            Let us tailor your experience — choose the role that fits you.
                         </p>
                         <button onClick={() => navigate('/signup')} className="register-btn">
                             Register for free

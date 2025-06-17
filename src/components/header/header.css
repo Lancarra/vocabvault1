@@ -1,0 +1,73 @@
+/* === HEADER === */
+.header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background: var(--card-bg);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* ← усиленная тень */
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.header_cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    flex: 0 0 auto;
+}
+.logo {
+    font-size: 1.1rem;
+    margin: 0;
+    line-height: 1;
+    color: var(--text-color);
+}
+
+.header-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.search_bar {
+    width: 50%;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    padding: 2px 8px;
+    height: 32px;
+}
+.search_bar img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.6;
+}
+.search_bar input {
+    width: 100%;
+    margin-left: 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.header-right {
+    flex: 0 0 auto;
+}
+.profile-btn {
+    font-size: 0.95rem;
+    background: var(--primary);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 10px;
+    font-weight: 500;
+}
+.profile-btn:hover {
+    background: var(--primary-hover);
+}
