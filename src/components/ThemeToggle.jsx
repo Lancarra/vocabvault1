@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Sun, Moon } from "lucide-react"; // можно заменить на любые
 
 const ThemeToggle = () => {
     const [theme, setTheme] = useState(() => {
@@ -6,8 +7,7 @@ const ThemeToggle = () => {
     });
 
     useEffect(() => {
-        const root = document.documentElement;
-        root.setAttribute("data-theme", theme);
+        document.documentElement.setAttribute("data-theme", theme);
         localStorage.setItem("theme", theme);
     }, [theme]);
 
@@ -17,7 +17,17 @@ const ThemeToggle = () => {
 
     return (
         <div className="dropdown-item" onClick={toggleTheme}>
-            {theme === "dark" ? "🌞 Light Mode" : "🌙 Dark Mode"}
+            {theme === "dark" ? (
+                <>
+                    <Sun size={18} color="#f4b400" />
+                    Light Mode
+                </>
+            ) : (
+                <>
+                    <Moon size={18} color="#444" />
+                    Dark Mode
+                </>
+            )}
         </div>
     );
 };

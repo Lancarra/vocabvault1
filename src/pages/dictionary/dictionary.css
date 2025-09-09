@@ -1,41 +1,167 @@
-.dictionary-main {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 40px 20px;
+.dictionary-heading {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 60px;
+    margin-bottom: 32px;
+    color: var(--text-color, #3b2a00);
+    text-align: left;
+    padding-left: 8px;
 }
 
-.dictionary-header {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: var(--text-color);
+.dictionary-page .container {
+    max-width: 100%;
+    width: 100%;
+    padding: 0 40px;
+    box-sizing: border-box;
 }
 
-.dictionary-table {
+/* список слов */
+.word-list {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    margin-top: 40px;
 }
 
-.table-header,
-.table-row {
-    display: grid;
-    grid-template-columns: 60px 1fr 2fr;
+.word-row {
+    display: flex;
     align-items: center;
-    padding: 16px 24px;
-    background: var(--card-bg);
+    justify-content: flex-start;
+    position: relative;
+    background: var(--card-bg, #fffaf0);
+    border: 1px solid var(--input-border, #e0c68c);
+    border-radius: 16px;
+    padding: 28px 36px;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.06);
+    margin-bottom: 24px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.word-row:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.1);
+}
+
+.word-img {
+    width: 72px;
+    height: 72px;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    margin-bottom: 16px;
-    text-decoration: none;
-    color: inherit;
+    object-fit: cover;
+    margin-right: 28px;
+    background-color: #fdf4d7; /* мягкий медовый фон вместо серого */
+    flex-shrink: 0;
 }
 
-.table-header {
+.word-content {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.word-text {
+    font-size: 20px;
     font-weight: 600;
-    background-color: #e7f7f3;
+    min-width: 180px;
+    color: var(--text-color, #3b2a00);
 }
 
-.table-cell {
-    font-size: 1.1rem;
+.divider {
+    width: 1px;
+    height: 60px;
+    background-color: var(--input-border, #e0c68c);
+    margin: 0 24px;
+}
+
+.word-meaning {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #6b4e16;
+    flex: 1;
+}
+
+/* дропдаун для каждой строки */
+.dropdown {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    z-index: 2;
+}
+.dropdown-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #996515;
+    padding: 0;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+.dropdown-toggle:hover {
+    color: var(--primary-hover, #b8860b);
+}
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 8px;
+    background-color: var(--card-bg, #fffaf0);
+    border: 1px solid var(--input-border, #e0c68c);
+    border-radius: 10px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    padding: 8px 0;
+    z-index: 10;
+    min-width: 140px;
+}
+.dropdown-menu button {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 10px 16px;
+    text-align: left;
+    font-size: 15px;
+    color: var(--text-color, #3b2a00);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.dropdown-menu button:hover {
+    background-color: #fdf4d7;
+}
+
+/* верхняя панель */
+.top-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-left: 8px;
+}
+.button-group {
+    display: flex;
+    gap: 12px;
+}
+
+/* кнопки */
+.create-button {
+    background-color: var(--primary, #d4a017);
+    color: #fff;
+    padding: 10px 18px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.06s ease;
+}
+.create-button:hover {
+    background-color: var(--primary-hover, #b8860b);
+}
+.create-button:active {
+    transform: translateY(1px);
+}
+
+/* если нужно выделить кнопку "Learn Words" */
+.learn-word-button {
+    background-color: #e6b800; /* насыщенный жёлто-мёдовый */
+    color: #fff;
+}
+.learn-word-button:hover {
+    background-color: #cc9a00;
 }

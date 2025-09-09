@@ -10,7 +10,6 @@ const api = axios.create({
     }
 });
 
-// Добавляем JWT токен из localStorage в каждый запрос
 api.interceptors.request.use(config => {
     const token = localStorage.getItem("jwtToken");
     if (token) {
@@ -19,7 +18,6 @@ api.interceptors.request.use(config => {
     return config;
 }, error => Promise.reject(error));
 
-// Обработка ошибок (можно добавить редирект или алерт при 401)
 api.interceptors.response.use(
     response => response,
     error => {

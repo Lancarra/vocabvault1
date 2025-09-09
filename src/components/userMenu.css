@@ -1,0 +1,65 @@
+.user-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 24px;
+}
+
+/* Аватар */
+.avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid var(--primary, #d4a017); /* медовый акцент */
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.avatar:hover {
+    transform: scale(1.05);
+    border-color: var(--primary-hover, #b8860b);
+}
+
+/* Выпадающее меню */
+.dropdown_profile {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background-color: var(--card-bg, #fffaf0);
+    border: 1px solid var(--input-border, #e0c68c);
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+    padding: 8px 0;
+    z-index: 100;
+    min-width: 190px;
+}
+
+/* Кнопки меню */
+.dropdown_profile button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 10px 16px;
+    font-size: 15px;
+    color: var(--text-color, #3b2a00);
+    cursor: pointer;
+    transition: background 0.2s ease;
+    border-radius: 6px;
+}
+.dropdown_profile button:hover {
+    background-color: #fdf4d7; /* светлый медовый hover */
+}
+
+.dropdown_profile button svg {
+    margin-right: 8px;
+    flex-shrink: 0;
+    color: var(--icon-color, #b8860b);
+}
+
+/* Переключатель темы */
+.theme-toggle-button {
+    padding: 0;
+}

@@ -1,170 +1,184 @@
-/* === ПЕРЕМЕННЫЕ === */
+/* === ПЕРЕМЕННЫЕ (медовые оттенки) === */
 :root {
-  --bg-color: #eefaf6;
-  --text-color: #004d40;
-  --card-bg: #ffffff;
-  --primary: #00c896;
-  --primary-hover: #00b386;
-  --input-bg: #f3fdfa;
-  --input-border: #cceee7;
-  --link-color: #2e8b57;
-  --icon-color: #00796b;
+    --bg-color: #ffffff;        /* белый фон страницы */
+    --text-color: #3b2a00;      /* тёплый коричневый текст */
+    --card-bg: #fffaf0;         /* «бумажный» фон карточек */
+    --primary: #d4a017;         /* медовый акцент */
+    --primary-hover: #b8860b;   /* темнее при наведении */
+    --input-bg: #fffdf7;        /* тёплый почти белый */
+    --input-border: #e0c68c;    /* мягкая медовая рамка */
+    --link-color: #996515;      /* медовый для ссылок */
+    --icon-color: #b8860b;      /* золотистый для иконок */
+    --muted: #6b4e16;           /* приглушённый текст/подписи */
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.10);
 }
 
+/* Тёмная тема в тёплой палитре */
 [data-theme="dark"] {
-  --bg-color: #121212;
-  --text-color: #e0e0e0;
-  --card-bg: #1e1e1e;
-  --primary: #1abc9c;
-  --primary-hover: #16a085;
-  --input-bg: #2a2a2a;
-  --input-border: #444;
-  --link-color: #76ffea;
-  --icon-color: #80cbc4;
+    --bg-color: #13100b;
+    --text-color: #f3e9d2;
+    --card-bg: #1e1a12;
+    --primary: #d4a017;
+    --primary-hover: #b8860b;
+    --input-bg: #1a160f;
+    --input-border: #3c321c;
+    --link-color: #ffd27a;
+    --icon-color: #e0b04e;
+    --muted: #d2c29a;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    --shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.55);
 }
 
 /* === ОСНОВНОЙ СТИЛЬ === */
 body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Центровка логина/регистрации */
 .auth-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: var(--bg-color);
-  padding: 40px 20px;
-  box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: var(--bg-color);
+    padding: 40px 20px;
+    box-sizing: border-box;
 }
 
 /* Форма авторизации */
 .auth-box {
-  background: var(--card-bg);
-  padding: 2rem;
-  border-radius: 16px;
-  max-width: 400px;
-  width: 100%;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  color: var(--text-color);
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 16px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: var(--shadow);
+    text-align: center;
+    color: var(--text-color);
+    border: 1px solid var(--input-border);
 }
 
 .auth-box h2 {
-  margin-bottom: 0.5rem;
-  color: var(--text-color);
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
 }
 
 .auth-subtext {
-  font-size: 0.95rem;
-  margin-bottom: 1.5rem;
-  color: #888;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    color: var(--muted);
 }
 
 .auth-subtext a {
-  color: var(--primary);
-  font-weight: 500;
+    color: var(--primary);
+    font-weight: 500;
+    text-decoration: none;
 }
+.auth-subtext a:hover { color: var(--primary-hover); }
 
 /* Инпут-группа */
 .input-group {
-  display: flex;
-  align-items: center;
-  background: var(--input-bg);
-  border: 1px solid var(--input-border);
-  padding: 10px 14px;
-  border-radius: 10px;
-  margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    padding: 10px 14px;
+    border-radius: 10px;
+    margin-bottom: 1rem;
 }
 
 .input-group input {
-  border: none;
-  outline: none;
-  background: transparent;
-  margin-left: 10px;
-  width: 100%;
-  font-size: 1rem;
-  color: var(--text-color);
+    border: none;
+    outline: none;
+    background: transparent;
+    margin-left: 10px;
+    width: 100%;
+    font-size: 1rem;
+    color: var(--text-color);
 }
 
 .icon {
-  font-size: 1.1rem;
-  color: var(--icon-color);
+    font-size: 1.1rem;
+    color: var(--icon-color);
+    /* лёгкое «медовое» тонирование для монохромных svg/png при необходимости */
+    filter: sepia(1) hue-rotate(330deg) saturate(1.2) brightness(1.05);
 }
 
 /* Кнопка полной ширины */
 .full-width-btn {
-  width: 100%;
-  background-color: var(--primary);
-  font-size: 1rem;
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s;
+    width: 100%;
+    background-color: var(--primary);
+    font-size: 1rem;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.06s ease;
 }
-
-.full-width-btn:hover {
-  background-color: var(--primary-hover);
-}
+.full-width-btn:hover { background-color: var(--primary-hover); }
+.full-width-btn:active { transform: translateY(1px); }
 
 /* Кнопки */
 button {
-  background-color: var(--primary);
-  color: #fff;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 10px;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.06s ease;
 }
-
-button:hover {
-  background-color: var(--primary-hover);
+button:hover { background-color: var(--primary-hover); }
+button:active { transform: translateY(1px); }
+button:focus-visible {
+    outline: 2px solid var(--input-border);
+    outline-offset: 2px;
 }
 
 /* Инпуты */
 input {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid var(--input-border);
-  outline: none;
-  font-size: 1rem;
-  width: 100%;
-  background: var(--card-bg);
-  color: var(--text-color);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--input-border);
+    outline: none;
+    font-size: 1rem;
+    width: 100%;
+    background: var(--card-bg);
+    color: var(--text-color);
+}
+input:focus {
+    box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.15); /* мягкий медовый фокус */
+    border-color: var(--primary);
 }
 
 /* Ссылки */
 a {
-  color: var(--link-color);
-  text-decoration: none;
+    color: var(--link-color);
+    text-decoration: none;
 }
-a:hover {
-  text-decoration: underline;
-}
+a:hover { text-decoration: underline; }
 
 /* Мобильная адаптация */
 @media (max-width: 600px) {
-  .create-form,
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+    .create-form,
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-  .dict-list li {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+    .dict-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-  .dict-list button {
-    margin: 5px 5px 0 0;
-  }
+    .dict-list button {
+        margin: 5px 5px 0 0;
+    }
 }

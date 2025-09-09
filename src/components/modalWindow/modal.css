@@ -1,0 +1,103 @@
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: var(--card-bg, #fffaf0); /* бумажно-медовый фон */
+    padding: 24px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--input-border, #e0c68c);
+    color: var(--text-color, #3b2a00);
+}
+
+.modal h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-color, #3b2a00);
+}
+
+.modal input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--input-border, #e0c68c);
+    background: var(--input-bg, #fffdf7);
+    color: var(--text-color, #3b2a00);
+}
+.modal input:focus {
+    border-color: var(--primary, #d4a017);
+    box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.15);
+    outline: none;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-actions button {
+    padding: 8px 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.06s ease;
+}
+
+.modal-actions .cancel {
+    background: #f1e0b3; /* мягкий бежево-медовый */
+    color: #5a4500;
+}
+.modal-actions .cancel:hover {
+    background: #e6d199;
+}
+
+.modal-actions button:not(.cancel) {
+    background: var(--primary, #d4a017);
+    color: #fff;
+}
+.modal-actions button:not(.cancel):hover {
+    background: var(--primary-hover, #b8860b);
+}
+.modal-actions button:active {
+    transform: translateY(1px);
+}
+
+.modal-photo-label {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #f1e0b3;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #5a4500;
+}
+.modal-photo-label:hover {
+    background-color: #e6d199;
+}
+
+.modal-photo-preview {
+    display: block;
+    max-width: 100%;
+    max-height: 160px;
+    margin-top: 10px;
+    border-radius: 8px;
+    object-fit: contain;
+    border: 1px solid var(--input-border, #e0c68c);
+}

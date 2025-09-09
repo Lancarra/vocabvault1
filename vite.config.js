@@ -4,11 +4,11 @@ export default defineConfig({
   server: {
     port: 5178,
     proxy: {
-      "/api": {
-        target: "http://localhost:7271",
+      "/users": {
+        target: "https://localhost:7271",
         changeOrigin: true,
-        secure: false,
-      },
-    },
-  },
+        secure: false
+      }
+    }
+  }
 });

@@ -1,0 +1,117 @@
+/* === COMPACT BREADCRUMBS === */
+.header-breadcrumbs {
+    width: 100%;
+    padding: 4px 16px; /* Уменьшили вертикальный паддинг */
+    background: #faf5e6; /* Более приглушенный медовый фон */
+    border-bottom: 1px solid #e9dcb3; /* Более светлая граница */
+    font-size: 0.75rem; /* Еще меньше размер шрифта */
+    color: #8a6d03; /* Более темный цвет текста */
+    line-height: 1.2;
+}
+
+.bc-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 3px; /* Уменьшили отступы между элементами */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.bc-item {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.bc-link {
+    color: #8a6d03; /* Темный медовый */
+    text-decoration: none;
+    transition: color 0.2s ease;
+    padding: 2px 4px;
+    border-radius: 3px;
+    white-space: nowrap;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.bc-link:hover {
+    color: #6b5202; /* Еще темнее при наведении */
+    background-color: rgba(212, 160, 23, 0.1); /* Легкий фон при наведении */
+    text-decoration: none;
+}
+
+.bc-current {
+    color: #6b5202; /* Самый темный для текущей страницы */
+    font-weight: 500; /* Не слишком жирный */
+    padding: 2px 4px;
+    white-space: nowrap;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bc-sep {
+    opacity: 0.6;
+    color: #8a6d03;
+    font-size: 0.7rem;
+    margin: 0 1px;
+}
+
+/* Стили для выпадающего меню (сделаем тоже компактнее) */
+.bc-ellipsis {
+    position: relative;
+}
+
+.bc-ellipsis details > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #8a6d03;
+    font-size: 0.7rem;
+    background: rgba(212, 160, 23, 0.1);
+}
+.bc-ellipsis details[open] > summary,
+.bc-ellipsis details > summary:hover {
+    background: rgba(212, 160, 23, 0.2);
+    color: #6b5202;
+}
+.bc-ellipsis details > summary::-webkit-details-marker {
+    display: none;
+}
+
+.bc-menu {
+    position: absolute;
+    z-index: 10;
+    margin-top: 4px;
+    background: var(--card-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+    min-width: 160px;
+    padding: 4px;
+}
+.bc-menu ul {
+    max-height: 200px;
+    overflow: auto;
+    margin: 0;
+    padding: 2px 0;
+    list-style: none;
+}
+.bc-menu-link, .bc-menu-text {
+    display: block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: #8a6d03;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.bc-menu-link:hover {
+    background: rgba(212, 160, 23, 0.1);
+    color: #6b5202;
+}

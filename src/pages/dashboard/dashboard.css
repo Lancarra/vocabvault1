@@ -1,75 +1,176 @@
-/* Основной блок страницы */
+/* ================================
+   Общая структура страницы
+================================= */
+
 .dashboard-page {
     width: 100%;
     min-height: 100vh;
-    background-color: var(--bg-color);
+    background-color: var(--bg-color, #ffffff);
     padding: 60px 40px;
     box-sizing: border-box;
 }
 
-/* Заголовок приветствия */
 .dashboard-greeting {
     font-size: 28px;
     font-weight: 700;
-    margin-bottom: 40px;
-    color: var(--text-color);
+    margin-bottom: 24px;
+    color: var(--text-color, #3b2a00);
 }
 
-/* Сетка карточек */
+.top-bar {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 40px;
+}
+
+.create-button {
+    background-color: var(--primary, #d4a017);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.06s ease;
+}
+.create-button:hover {
+    background-color: var(--primary-hover, #b8860b);
+}
+.create-button:active {
+    transform: translateY(1px);
+}
+
+/* ================================
+   Сетка карточек
+================================= */
+
 .modules-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px 60px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px 30px;
     max-width: 1280px;
     margin: 0 auto;
 }
 
-/* Оформление карточки модуля */
 .module-card {
-    display: flex;
-    align-items: center;
-    background-color: var(--card-bg);
-    padding: 28px 32px;
+    background-color: var(--card-bg, #fffaf0);
+    padding: 24px 28px;
     border-radius: 14px;
-    text-decoration: none;
-    color: var(--text-color);
-    gap: 24px;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    border: 1px solid var(--input-border, #e0c68c);
 }
-
 .module-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 14px 50px rgba(0, 0, 0, 0.1);
 }
 
-/* Новая иконка */
-.module-icon {
-    width: 70px;
-    height: 70px;
-    object-fit: contain;
+.module-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
 }
 
-/* Текстовое содержимое карточки */
+.module-link {
+    display: flex;
+    text-decoration: none;
+    color: inherit;
+    gap: 20px;
+    flex: 1;
+}
+
+.module-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    flex-shrink: 0;
+    filter: sepia(1) hue-rotate(330deg) saturate(1.3) brightness(1.05);
+}
+
 .module-info h3 {
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 700;
     margin: 0 0 6px;
+    color: var(--text-color, #3b2a00);
 }
 
 .module-info p {
-    font-size: 15px;
+    font-size: 14px;
     margin: 0;
-    color: #555;
+    color: #6b4e16; /* тёплый коричневый */
 }
 
-/* Мобильная адаптация */
-@media (max-width: 768px) {
-    .modules-grid {
-        grid-template-columns: 1fr;
-    }
+/* ================================
+   Дропдаун (⋯)
+================================= */
 
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px 6px;
+    line-height: 1;
+    color: var(--text-color, #3b2a00);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 24px;
+    right: 0;
+    background: var(--card-bg, #fffaf0);
+    border: 1px solid var(--input-border, #e0c68c);
+    border-radius: 10px;
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.08);
+    display: none;
+    flex-direction: column;
+    min-width: 150px;
+    z-index: 1000;
+    padding: 4px 0;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: flex;
+}
+
+.dropdown-menu button {
+    background: none;
+    border: none;
+    padding: 10px 16px;
+    text-align: left;
+    font-size: 14px;
+    color: var(--text-color, #3b2a00);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.dropdown-menu button:hover {
+    background-color: #fdf4d7; /* мягкий медовый hover */
+}
+
+/* ================================
+   Адаптация под мобильные
+================================= */
+
+@media (max-width: 768px) {
     .dashboard-page {
         padding: 30px 20px;
+    }
+    .modules-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .module-icon {
+        width: 50px;
+        height: 50px;
     }
 }
